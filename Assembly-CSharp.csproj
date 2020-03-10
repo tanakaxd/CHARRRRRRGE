@@ -64,6 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\artillery.cs" />
+    <Compile Include="Assets\Scripts\barrack.cs" />
+    <Compile Include="Assets\Scripts\cameraScript.cs" />
+    <Compile Include="Assets\Scripts\infantry.cs" />
+    <Compile Include="Assets\Scripts\projectile.cs" />
     <Compile Include="Assets\Scripts\Scriptable\Item.cs" />
     <Compile Include="Assets\Scripts\Scriptable\ItemDataBase.cs" />
     <Compile Include="Assets\Scripts\Utility\NonEditableAttribute.cs" />
