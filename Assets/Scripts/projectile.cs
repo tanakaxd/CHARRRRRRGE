@@ -5,6 +5,8 @@ using UnityEngine;
 public class projectile : MonoBehaviour
 {
     private Collider[] colliders;
+
+    private int damageToTower = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +25,23 @@ public class projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Tower"))
+        {
+            //Debug.Log("hit tower");
+            collision.gameObject.GetComponent<Tower>().ChangeHealth(damageToTower);
+        }
+        else
+        {
+            //Debug.Log("hit something else: "+ collision.gameObject);    
+        }
+
         StartCoroutine("DetonateSelf");
     }
 
     IEnumerator DetonateSelf()
     {
         colliders[1].enabled = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return null;
         Destroy(gameObject);
     }
 }

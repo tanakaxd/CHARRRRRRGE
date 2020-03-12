@@ -22,7 +22,8 @@ public class barrack : MonoBehaviour
 
     void SpawnInfantry()
     {
-        GameObject infantry = Instantiate(infantryPrefab) as GameObject;
+        GameObject infantry = Instantiate(infantryPrefab, transform.position, transform.rotation) as GameObject;
+        Engine.instance.Infantiries.Add(infantry);
         infantry.transform.SetParent(transform);
         Invoke("SpawnInfantry", spawnInterval);
     }

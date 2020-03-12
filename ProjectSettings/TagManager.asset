@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
+  - Tower
+  - Infantry
+  - Dead
+  - Bullet
+  - Projectile
   layers:
   - Default
   - TransparentFX
