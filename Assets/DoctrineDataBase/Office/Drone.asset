@@ -16,4 +16,7 @@ MonoBehaviour:
   doctrineID: 1
   doctrineName: Drone Deployment
   doctrineCost: 200
+  requirements:
+  - {fileID: 11400000, guid: 357e5c34908bd1241a5257840eceda41, type: 2}
   information: "\u30C9\u30ED\u30FC\u30F3\u3092\u4E00\u57FA\u53D6\u5F97\u3002\u30BF\u30FC\u30B2\u30C3\u30C8\u3092\u6620\u50CF\u3067\u3068\u3089\u3048\u308B\u3002"
+  effectApplier: {fileID: 11400000, guid: 10f67ff4d35930c48bca79fbca14d5ce, type: 2}

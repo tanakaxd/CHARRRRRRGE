@@ -7,12 +7,16 @@ public class Tower : MonoBehaviour
     private int health;
     private int maxHealth = 50;
 
+    public GameObject guardPrefab;
+    private float spawnInterval = 1;
+
     public GameObject bulletPrefab;
     private GameObject turretFocal;
     private GameObject turret;
     private GameObject shotPoint;
     private float shootPower = 100;
     private float shootInterval = 1;
+    private int xpPerTower = 100;
     private Quaternion initialTurretAngle;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,7 @@ public class Tower : MonoBehaviour
         //initialTurretAngle = turret.transform.rotation;
         shotPoint = turret.transform.Find("ShotPoint").gameObject;
         Shoot();
+        //SpawnGuard();
     }
 
     // Update is called once per frame
@@ -40,6 +45,7 @@ public class Tower : MonoBehaviour
             transform.Find("Turret Tower").gameObject.SetActive(false);
             transform.Find("Slugs").gameObject.SetActive(true);
             CancelInvoke("Shoot");
+            Engine.instance.UpdateXp(xpPerTower);
         }
         Debug.Log("current health: " + health);
 
@@ -48,8 +54,10 @@ public class Tower : MonoBehaviour
     bool Aim()
     {
         //GameObject target = GameObject.FindGameObjectWithTag("Infantry");
-       
+        if (Engine.instance.Infantiries.Count <= 0) return false;
         int randomIndex = Random.Range(0, Engine.instance.Infantiries.Count);
+        Debug.Log(randomIndex);
+        Debug.Log(Engine.instance.Infantiries.Count);
         GameObject target = Engine.instance.Infantiries[randomIndex];
         if (target == null) return false;
         Vector3 dir = target.transform.position - transform.position;
@@ -80,5 +88,12 @@ public class Tower : MonoBehaviour
             }
         }
         Invoke("Shoot", shootInterval);
+    }
+
+    void SpawnGuard()
+    {
+        GameObject guard = Instantiate(guardPrefab, transform.position + transform.forward * 5, guardPrefab.transform.rotation)as GameObject;
+        guard.transform.SetParent(gameObject.transform);
+        Invoke("SpawnGuard", spawnInterval);
     }
 }

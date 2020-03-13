@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class artillery : MonoBehaviour
+public class Artillery : MonoBehaviour
 {
     public float shootPower = 100;
     public GameObject projectilePrefab;
+
+    private Text bulletText;
 
     private Rigidbody rb;
     private Rigidbody turretRb;
@@ -14,6 +17,15 @@ public class artillery : MonoBehaviour
 
     private float yAngularVelocity = 10;
     private float xAngularVelocity = 5;
+    private float deltaTimePerProjectile = 0.2f;
+    private float coolDownTime = 4.0f;
+    private bool onCoolDown = false;
+    private bool isFiring = false;
+    private int projectilePerShot;
+    private int bulletCharge;
+    public int ProjectilePerShot { get { return projectilePerShot; } set { projectilePerShot = value; } }
+    public float CoolDownTime { get {return coolDownTime; } set { coolDownTime = value; } }
+
     //private Rigidbody projectileRb;
     // Start is called before the first frame update
     void Start()
@@ -22,27 +34,68 @@ public class artillery : MonoBehaviour
         turret = transform.GetChild(0).transform;
         turretRb = turret.GetComponent<Rigidbody>();
         shotPoint = turret.GetChild(0).transform;
+
+        bulletText = GameObject.Find("BulletCharge").GetComponent<Text>();
+
+        projectilePerShot = 4;
+        bulletCharge = projectilePerShot;
     }
 
-    // Update is called once per frame
+    // is called once per frame
     void Update()
     {
-        Shoot();
+        if (Input.GetKeyDown(KeyCode.R) && !onCoolDown && !isFiring)
+        {
+            StartCoroutine("Shoot");
+        }
         Rotate();
         //LaunchAngle();
-        
     }
 
-    void Shoot()
+    //void Update()
+    //{
+    //    Shoot();
+    //    Rotate();
+    //    //LaunchAngle();
+
+    //}
+
+    IEnumerator Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !onCoolDown)
         {
             GameObject projectile = Instantiate(projectilePrefab, shotPoint.position, turret.rotation);
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
             projectileRb.AddForce(projectileRb.transform.forward * shootPower, ForceMode.Impulse);
+            UpdateBullet(1);
+            if (bulletCharge <= 0)
+            {
+                onCoolDown = true;
+                yield return new WaitForSeconds(coolDownTime);
+                onCoolDown = false;
+                bulletCharge = projectilePerShot;
+                UpdateBullet(0);
+            }
         }
-        
+
     }
+
+    //IEnumerator Shoot()
+    //{
+    //    isFiring = true;
+    //    for (int i = 0; i < projectilePerShot; i++)
+    //    {
+    //        GameObject projectile = Instantiate(projectilePrefab, shotPoint.position, turret.rotation);
+    //        Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+    //        projectileRb.AddForce(projectileRb.transform.forward * shootPower, ForceMode.Impulse);
+    //        yield return new WaitForSeconds(deltaTimePerProjectile);
+    //    }
+    //    isFiring = false;
+
+    //    onCoolDown = true;
+    //    yield return new WaitForSeconds(coolDownTime);
+    //    onCoolDown = false;
+    //}
 
     void Rotate()
     {
@@ -59,6 +112,13 @@ public class artillery : MonoBehaviour
         float xangle = Input.GetAxis("Vertical");
         Rigidbody turrentRb = turret.GetComponent<Rigidbody>();
         turrentRb.rotation = Quaternion.Euler(xangle * Time.fixedDeltaTime * xAngularVelocity, 0, 0) * turrentRb.rotation;
+
+    }
+
+    void UpdateBullet(int amount)
+    {
+        bulletCharge-=amount;
+        bulletText.text = bulletCharge + " / " + projectilePerShot;
 
     }
 }

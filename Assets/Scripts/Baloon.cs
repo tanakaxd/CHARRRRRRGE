@@ -5,7 +5,7 @@ using UnityEngine;
 public class Baloon : MonoBehaviour
 {
     private Rigidbody rb;
-    private float speed = 20;
+    private float speed = 10;
     private int xpPerPotion = 100;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,8 @@ public class Baloon : MonoBehaviour
 
     void Fall()
     {
-        rb.MovePosition(transform.position - transform.up * speed * Time.fixedDeltaTime);
+        //rb.MovePosition(transform.position - transform.up * speed * Time.fixedDeltaTime);
+        //rb.AddForce(-transform.up * speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

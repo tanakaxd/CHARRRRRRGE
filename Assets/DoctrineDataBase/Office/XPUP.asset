@@ -16,4 +16,6 @@ MonoBehaviour:
   doctrineID: 2
   doctrineName: XPUP
   doctrineCost: 400
+  requirements:
+  - {fileID: 11400000, guid: d99b5b56a113deb44867ad04ca255b98, type: 2}
   information: "\u5165\u624B\u3067\u304D\u308BXP\u304C30\uFF05\u30A2\u30C3\u30D7"

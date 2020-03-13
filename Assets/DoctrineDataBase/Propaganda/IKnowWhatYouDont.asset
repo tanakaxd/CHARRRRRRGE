@@ -16,4 +16,6 @@ MonoBehaviour:
   doctrineID: 23
   doctrineName: IKnowWhatYouDont
   doctrineCost: 800
+  requirements:
+  - {fileID: 11400000, guid: 4c7dd583e4bd14e4a893314f756c57e7, type: 2}
   information: "\u6B69\u5175\u304C\u30D7\u30EC\u30A4\u30E4\u30FC\u304B\u3089\u306E\u7832\u6483\u3067\u306F\u6B7B\u306A\u306A\u304F\u306A\u308B"

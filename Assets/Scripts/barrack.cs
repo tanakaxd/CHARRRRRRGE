@@ -6,7 +6,9 @@ public class barrack : MonoBehaviour
 {
     public GameObject infantryPrefab;
 
-    private float spawnInterval = 0.5f;
+    private float spawnInterval = 1f;
+    public float SpawnInterval { get {return spawnInterval; } set {spawnInterval = value; } }
+    //public float SpawnInterval { get; set; }
 
     // Start is called before the first frame update
     void Start()

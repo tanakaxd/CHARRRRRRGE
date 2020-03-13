@@ -63,17 +63,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\artillery.cs" />
+    <Compile Include="Assets\Scripts\Artillery.cs" />
     <Compile Include="Assets\Scripts\Baloon.cs" />
     <Compile Include="Assets\Scripts\barrack.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\cameraScript.cs" />
     <Compile Include="Assets\Scripts\DoctrineManager.cs" />
     <Compile Include="Assets\Scripts\Engine.cs" />
+    <Compile Include="Assets\Scripts\Guard.cs" />
     <Compile Include="Assets\Scripts\infantry.cs" />
     <Compile Include="Assets\Scripts\projectile.cs" />
     <Compile Include="Assets\Scripts\Scriptable\Doctrine.cs" />
     <Compile Include="Assets\Scripts\Scriptable\DoctrineDataBase.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\ApBarrack.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\ApConsecutiveShots.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\ApDrone.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\ApInfantrySpawnRate.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\CooldownReduction.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\GravityModification.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\effectapplier\IEffectApplier.cs" />
     <Compile Include="Assets\Scripts\Scriptable\Item.cs" />
     <Compile Include="Assets\Scripts\Scriptable\ItemDataBase.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />

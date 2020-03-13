@@ -16,4 +16,7 @@ MonoBehaviour:
   doctrineID: 31
   doctrineName: CoolDownReduction
   doctrineCost: 200
+  requirements:
+  - {fileID: 11400000, guid: 357e5c34908bd1241a5257840eceda41, type: 2}
   information: "\u30AF\u30FC\u30EB\u30C0\u30A6\u30F3\u77ED\u7E2E"
+  effectApplier: {fileID: 11400000, guid: afc4f356ab3c8cd43828ad81f2af03c0, type: 2}

@@ -16,4 +16,7 @@ MonoBehaviour:
   doctrineID: 33
   doctrineName: 16ConsecutiveShots
   doctrineCost: 800
+  requirements:
+  - {fileID: 11400000, guid: 4d856f1560fad7f4b83a441e0bd439eb, type: 2}
   information: "16\u9023\u5C04\u6483"
+  effectApplier: {fileID: 11400000, guid: 1b9bee6706e70db4da1243eb38b2e26e, type: 2}

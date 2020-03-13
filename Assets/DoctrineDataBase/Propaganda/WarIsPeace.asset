@@ -16,4 +16,6 @@ MonoBehaviour:
   doctrineID: 22
   doctrineName: WarIsPeace
   doctrineCost: 400
+  requirements:
+  - {fileID: 11400000, guid: a5c57194feb3d0241b5c71b4c7e4c1cf, type: 2}
   information: "\u6B69\u5175\u306E\u30B9\u30D4\u30FC\u30C9\u304C\u30A2\u30C3\u30D7"

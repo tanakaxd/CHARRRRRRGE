@@ -10,6 +10,10 @@ TagManager:
   - Dead
   - Bullet
   - Projectile
+  - DoctrineButton
+  - Artillery
+  - Barrack
+  - Guard
   layers:
   - Default
   - TransparentFX

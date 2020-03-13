@@ -14,6 +14,7 @@ public class infantry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = DoctrineManager.instance.AskLearned("WarIsPeace") ? speed*2 : speed;
         dead = false;
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Target");
@@ -37,14 +38,19 @@ public class infantry : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Bullet"))
+        if((collision.gameObject.CompareTag("Projectile") && !DoctrineManager.instance.AskLearned("IKnowWhatYouDont")) || collision.gameObject.CompareTag("Bullet"))
         {
-            dead = true;
-
-            transform.Find("Boximon Fiery").gameObject.SetActive(false);
-            transform.Find("DeadBody").gameObject.SetActive(true);
-            gameObject.tag = "Dead";
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        dead = true;
+
+        transform.Find("Boximon Fiery").gameObject.SetActive(false);
+        transform.Find("DeadBody").gameObject.SetActive(true);
+        gameObject.tag = "Dead";
     }
 
     private void OnCollisionStay(Collision collision)

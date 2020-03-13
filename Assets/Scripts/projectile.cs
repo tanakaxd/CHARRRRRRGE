@@ -6,11 +6,12 @@ public class projectile : MonoBehaviour
 {
     private Collider[] colliders;
 
-    private int damageToTower = 10;
+    private int damageToTower;
     // Start is called before the first frame update
     void Start()
     {
         colliders = GetComponents<SphereCollider>();
+        damageToTower = DoctrineManager.instance.AskLearned("CorrosiveAcid") ? 15 : 10;
     }
 
     // Update is called once per frame
@@ -29,6 +30,9 @@ public class projectile : MonoBehaviour
         {
             //Debug.Log("hit tower");
             collision.gameObject.GetComponent<Tower>().ChangeHealth(damageToTower);
+        }else if (collision.gameObject.CompareTag("Guard"))
+        {
+            collision.gameObject.GetComponent<Guard>().ChangeHealth(damageToTower);
         }
         else
         {
@@ -40,6 +44,10 @@ public class projectile : MonoBehaviour
 
     IEnumerator DetonateSelf()
     {
+        if (DoctrineManager.instance.AskLearned("ExplosiveShot")) 
+        {
+            colliders[1].GetComponent<SphereCollider>().radius = 15;
+        }
         colliders[1].enabled = true;
         yield return null;
         Destroy(gameObject);

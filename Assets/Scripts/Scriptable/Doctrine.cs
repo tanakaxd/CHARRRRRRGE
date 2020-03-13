@@ -28,7 +28,13 @@ public class Doctrine : ScriptableObject
     private int doctrineCost;
 
     [SerializeField]
+    private Doctrine[] requirements;
+
+    [SerializeField]
     private string information;
+
+    [SerializeField]
+    private IEffectApplier effectApplier;
 
     public DoctrineType GetTypeOfDoctrine()
     {
@@ -50,8 +56,23 @@ public class Doctrine : ScriptableObject
         return doctrineCost;
     }
 
+    public Doctrine[] GetRequirements()
+    {
+        return requirements;
+    }
+
     public string GetInformation()
     {
         return information;
+    }
+
+    public void ApplyEffect()
+    {
+        Debug.Log("ApplyEffect called");
+        if (effectApplier != null)
+        {
+            Debug.Log("ApplyEffect inside called");
+            effectApplier.Run();
+        }
     }
 }

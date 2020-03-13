@@ -16,4 +16,7 @@ MonoBehaviour:
   doctrineID: 3
   doctrineName: OneMoreBarrack
   doctrineCost: 800
+  requirements:
+  - {fileID: 11400000, guid: 19178ae0db45afe498eae2926c12dd6c, type: 2}
   information: "\u5175\u820E\u5897\u7BC9"
+  effectApplier: {fileID: 11400000, guid: a11e32f7d7136cc45a5fc8dd7984579e, type: 2}

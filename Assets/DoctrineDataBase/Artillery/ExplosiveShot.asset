@@ -16,4 +16,6 @@ MonoBehaviour:
   doctrineID: 32
   doctrineName: ExplosiveShot
   doctrineCost: 400
+  requirements:
+  - {fileID: 11400000, guid: db40e68820fa1d341973d5e774fcc41c, type: 2}
   information: "\u5F3E\u4E38\u306E\u7206\u7834\u529B\u30A2\u30C3\u30D7"

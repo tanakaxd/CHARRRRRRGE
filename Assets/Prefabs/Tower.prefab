@@ -1019,6 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919459d57947e864eba48c1a4596b509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guardPrefab: {fileID: 602636169498817464, guid: 521f71f2390d594428ae2ee414150ca1,
+    type: 3}
   bulletPrefab: {fileID: 4628574475436403260, guid: d93a6044824a4d049bc99bce77eee850,
     type: 3}
 --- !u!54 &1069395521
