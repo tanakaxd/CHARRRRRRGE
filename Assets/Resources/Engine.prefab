@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchCenter: {fileID: 11400000, guid: 357e5c34908bd1241a5257840eceda41, type: 2}
+  gameOverContainer: {fileID: 2881983386889012739, guid: 71e454303bc25a04ca7f51af3d01e699,
+    type: 3}

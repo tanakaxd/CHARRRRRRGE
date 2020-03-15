@@ -66,9 +66,12 @@
     <Compile Include="Assets\Scripts\Artillery.cs" />
     <Compile Include="Assets\Scripts\Baloon.cs" />
     <Compile Include="Assets\Scripts\barrack.cs" />
+    <Compile Include="Assets\Scripts\Bomb.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\cameraScript.cs" />
     <Compile Include="Assets\Scripts\DoctrineManager.cs" />
+    <Compile Include="Assets\Scripts\Drone.cs" />
+    <Compile Include="Assets\Scripts\EliteGuard.cs" />
     <Compile Include="Assets\Scripts\Engine.cs" />
     <Compile Include="Assets\Scripts\Guard.cs" />
     <Compile Include="Assets\Scripts\infantry.cs" />
@@ -86,8 +89,10 @@
     <Compile Include="Assets\Scripts\Scriptable\ItemDataBase.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Target.cs" />
+    <Compile Include="Assets\Scripts\test\Move.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
     <Compile Include="Assets\Scripts\Utility\DeactivateOnBound.cs" />
+    <Compile Include="Assets\Scripts\Utility\ExplosionParticlePooler.cs" />
     <Compile Include="Assets\Scripts\Utility\NonEditableAttribute.cs" />
     <Compile Include="Assets\Scripts\Utility\ObjectsPooler.cs" />
     <Compile Include="Assets\Scripts\Utility\RuntimeInitializer.cs" />

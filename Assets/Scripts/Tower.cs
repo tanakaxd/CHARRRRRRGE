@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private int health;
-    private int maxHealth = 50;
+    private int maxHealth = 1000;
 
     public GameObject guardPrefab;
     private float spawnInterval = 1;
@@ -14,9 +14,9 @@ public class Tower : MonoBehaviour
     private GameObject turretFocal;
     private GameObject turret;
     private GameObject shotPoint;
-    private float shootPower = 100;
+    private float shootPower =150;
     private float shootInterval = 1;
-    private int xpPerTower = 100;
+    private int xpPerTower = 200;
     private Quaternion initialTurretAngle;
     // Start is called before the first frame update
     void Start()
@@ -56,8 +56,8 @@ public class Tower : MonoBehaviour
         //GameObject target = GameObject.FindGameObjectWithTag("Infantry");
         if (Engine.instance.Infantiries.Count <= 0) return false;
         int randomIndex = Random.Range(0, Engine.instance.Infantiries.Count);
-        Debug.Log(randomIndex);
-        Debug.Log(Engine.instance.Infantiries.Count);
+        //Debug.Log(randomIndex);
+        //Debug.Log(Engine.instance.Infantiries.Count);
         GameObject target = Engine.instance.Infantiries[randomIndex];
         if (target == null) return false;
         Vector3 dir = target.transform.position - transform.position;

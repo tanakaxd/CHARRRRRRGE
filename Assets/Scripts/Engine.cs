@@ -10,6 +10,7 @@ public class Engine : MonoBehaviour
 
     private Text xpText;
     private GameObject gameClearContainer;
+    private GameObject gameOverText;
 
 
     private List<GameObject> infantries = new List<GameObject>();
@@ -71,11 +72,12 @@ public class Engine : MonoBehaviour
         builtResearchCenter = false;
         xpText = GameObject.Find("XPText").GetComponent<Text>();
         gameClearContainer = GameObject.Find("Canvas").transform.Find("GameClearContainer").gameObject;
-        gameClearContainer.SetActive(false);
+        gameOverText = GameObject.Find("Canvas").transform.Find("GameOverText").gameObject;
+        //gameClearContainer.SetActive(false);
 
     }
 
-    public void GameOver()
+    public void GameClear()
     {
         Debug.Log("game cleared");
         //GameObject gameClearContainer = GameObject.Find("Canvas");
@@ -83,6 +85,14 @@ public class Engine : MonoBehaviour
         gameClearContainer.transform.Find("FinalTime").GetComponent<Text>().text = "TIME TO FINISH: " + timeLapse;
         isGameover = true;
 
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("game over");
+        //GameObject gameClearContainer = GameObject.Find("Canvas");
+        gameOverText.SetActive(true);
+        isGameover = true;
     }
 
     public void UpdateXp(int amount)

@@ -7,6 +7,8 @@ public class Artillery : MonoBehaviour
 {
     public float shootPower = 100;
     public GameObject projectilePrefab;
+    public AudioClip shootSound;
+    private AudioSource audioSource;
 
     private Text bulletText;
 
@@ -21,7 +23,7 @@ public class Artillery : MonoBehaviour
     private float coolDownTime = 4.0f;
     private bool onCoolDown = false;
     private bool isFiring = false;
-    private int projectilePerShot;
+    private int projectilePerShot = 4;
     private int bulletCharge;
     public int ProjectilePerShot { get { return projectilePerShot; } set { projectilePerShot = value; } }
     public float CoolDownTime { get {return coolDownTime; } set { coolDownTime = value; } }
@@ -35,9 +37,10 @@ public class Artillery : MonoBehaviour
         turretRb = turret.GetComponent<Rigidbody>();
         shotPoint = turret.GetChild(0).transform;
 
+        audioSource = GetComponent<AudioSource>();
+
         bulletText = GameObject.Find("BulletCharge").GetComponent<Text>();
 
-        projectilePerShot = 4;
         bulletCharge = projectilePerShot;
     }
 
@@ -68,6 +71,7 @@ public class Artillery : MonoBehaviour
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
             projectileRb.AddForce(projectileRb.transform.forward * shootPower, ForceMode.Impulse);
             UpdateBullet(1);
+            audioSource.PlayOneShot(shootSound, 0.7f);
             if (bulletCharge <= 0)
             {
                 onCoolDown = true;

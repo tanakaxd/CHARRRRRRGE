@@ -10,6 +10,5 @@ public class ApConsecutiveShots : IEffectApplier
     public override void Run()
     {
         GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>().ProjectilePerShot = 16;
-
     }
 }
