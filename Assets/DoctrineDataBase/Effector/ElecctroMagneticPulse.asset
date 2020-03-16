@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ae6962519a5dbf409197509a8d1b73a, type: 3}
-  m_Name: Hallucination
+  m_Name: ElecctroMagneticPulse
   m_EditorClassIdentifier: 
   doctrineType: 2
   doctrineID: 12
-  doctrineName: Hallucination
+  doctrineName: ElecctroMagneticPulse
   doctrineCost: 400
   requirements:
   - {fileID: 11400000, guid: a4131ad8e83e3d9468590d40d4ea87be, type: 2}
-  information: "\u7832\u5F3E\u3067\u6575\u3092\u5473\u65B9\u306B\u3067\u304D\u308B"
+  information: "\u30C9\u30ED\u30FC\u30F3\u3092\u4E00\u767A\u3067\u5012\u305B\u308B\u3088\u3046\u306B\u306A\u308B"
   effectApplier: {fileID: 0}

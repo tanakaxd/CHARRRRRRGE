@@ -158,7 +158,7 @@ public class DoctrineManager : MonoBehaviour
 
                     //情報登録
                     Text text = buttonObject.transform.Find("DoctrineInfo").GetComponent<Text>();
-                    text.text = doctrine.GetDoctrineName() + "\n" + doctrine.GetDoctrineCost() + "\n" + doctrine.GetInformation();
+                    text.text = doctrine.GetDoctrineName() + "\n" + "XP cost: "+ doctrine.GetDoctrineCost() + "\n" + doctrine.GetInformation();
 
                     //処理登録
                     button.onClick.AddListener(() =>
@@ -185,7 +185,7 @@ public class DoctrineManager : MonoBehaviour
         popupButton.GetComponent<Button>().onClick.AddListener(() =>
         {
             Debug.Log("popupButton pushed");
-
+            Engine.instance.ResearchText.gameObject.SetActive(false);
             doctrineTree.SetActive(true);
         });
         doctrineClose.GetComponent<Button>().onClick.AddListener(() =>

@@ -14,7 +14,7 @@ public class Tower : MonoBehaviour
     private GameObject turretFocal;
     private GameObject turret;
     private GameObject shotPoint;
-    private float shootPower =150;
+    private float shootPower =100;
     private float shootInterval = 1;
     private int xpPerTower = 200;
     private Quaternion initialTurretAngle;
@@ -60,7 +60,7 @@ public class Tower : MonoBehaviour
         //Debug.Log(Engine.instance.Infantiries.Count);
         GameObject target = Engine.instance.Infantiries[randomIndex];
         if (target == null) return false;
-        Vector3 dir = target.transform.position - transform.position;
+        Vector3 dir = target.transform.position - shotPoint.transform.position;
         turretFocal.transform.rotation =  Quaternion.LookRotation(dir);
         return true;
     }

@@ -13,6 +13,9 @@ public class SpawnManager : MonoBehaviour
     public GameObject bombPrefab;
     private float bombInterval = 20;
 
+    public GameObject dronePrefab;
+    private float droneInterval = 8;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +40,8 @@ public class SpawnManager : MonoBehaviour
         int randomIndex = Random.Range(0, spawnPositions.Count);
         Instantiate(bombPrefab, spawnPositions[randomIndex].position, Quaternion.identity);
         Invoke("ShootBomb", bombInterval);
-        bombInterval -= 2;
-        bombInterval = Mathf.Clamp(bombInterval, 5, 20);
+        bombInterval -= 1.5f;
+        bombInterval = Mathf.Clamp(bombInterval, 8, 20);
     }
 
     void SpawnThings()
@@ -46,5 +49,15 @@ public class SpawnManager : MonoBehaviour
         int randomIndex = Random.Range(0, spawnPositions.Count);
         Instantiate(thingsPrefab, spawnPositions[randomIndex].position, Quaternion.identity);
         Invoke("SpawnThings", spawnInterval);
+    }
+
+    public void SpawnDrone()
+    {
+        Invoke("InstantiateDrone", droneInterval);
+    }
+
+    void InstantiateDrone()
+    {
+        Instantiate(dronePrefab);
     }
 }

@@ -9,6 +9,9 @@ public class Engine : MonoBehaviour
     public Doctrine researchCenter;
 
     private Text xpText;
+    private Text timeText;
+    private Text researchText;
+    public Text ResearchText { get { return researchText; } set {researchText=value; } }
     private GameObject gameClearContainer;
     private GameObject gameOverText;
 
@@ -26,7 +29,7 @@ public class Engine : MonoBehaviour
     private bool isGameover;
     private bool pause = false;
     private bool builtResearchCenter;
-    private float timeToBuildResearchCenter = 10;
+    private float timeToBuildResearchCenter = 30;
 
     private void Awake()
     {
@@ -57,20 +60,23 @@ public class Engine : MonoBehaviour
         {
             if (timeLapse >= timeToBuildResearchCenter)
             {
+                researchText.gameObject.SetActive(true);
                 DoctrineManager.instance.ResearchDoctrine(researchCenter);
                 builtResearchCenter = true;
             }
         }
-
+        UpdateTime();
     }
 
     void Init()
     {
-        xp = 1000;
+        xp = 0;
         isGameover = false;
         timeLapse = 0;
         builtResearchCenter = false;
         xpText = GameObject.Find("XPText").GetComponent<Text>();
+        timeText = GameObject.Find("Time").GetComponent<Text>();
+        researchText = GameObject.Find("ResearchCenterCompleted").transform.Find("ResearchCenterCompletedText").GetComponent<Text>();
         gameClearContainer = GameObject.Find("Canvas").transform.Find("GameClearContainer").gameObject;
         gameOverText = GameObject.Find("Canvas").transform.Find("GameOverText").gameObject;
         //gameClearContainer.SetActive(false);
@@ -103,6 +109,11 @@ public class Engine : MonoBehaviour
         }
         xp += amount;
         xpText.text = "XP: " + xp;
+    }
+
+    void UpdateTime()
+    {
+        timeText.text = "Time: " + (int)timeLapse;
     }
 
     public void Test()

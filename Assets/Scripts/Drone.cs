@@ -7,16 +7,16 @@ public class Drone : MonoBehaviour
     public float speed = 10;
     private Rigidbody rb;
     public GameObject prefab;
-    public ParticleSystem smoke;
+    //public ParticleSystem smoke;
 
-    private int maxHp = 100;
+    private int maxHp = 600;
     private int hp;
-    private int xpPerDrone = 150;
+    private int xpPerDrone = 300;
 
     private Vector3 initialPos;
     private Quaternion initialRot;
 
-    private float[] intervals = { 2, 3, 2, 3 };
+    private float[] intervals = { 4, 1, 4, 1 };
     private int index;
     private float rebornTime = 8;
 
@@ -25,9 +25,10 @@ public class Drone : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         initialPos = transform.position;
+        //initialRot = Quaternion.Euler(0,180,0);
         initialRot = rb.rotation;
         //Debug.Log(transform.rotation);
-        Debug.Log(rb.rotation);
+        //Debug.Log(rb.rotation);
 
         hp = maxHp;
         index = 0;
@@ -37,6 +38,8 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //HoverAround();
+
     }
     private void FixedUpdate()
     {
@@ -46,13 +49,14 @@ public class Drone : MonoBehaviour
     void HoverAround()
     {
         rb.MovePosition(transform.position + transform.forward * speed * Time.fixedDeltaTime);
+        //rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
     }
 
     void Rotate()
     {
         rb.rotation = rb.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
         //Debug.Log(transform.rotation);
-        Debug.Log("rotated: "+rb.rotation);
+        //Debug.Log("rotated: "+rb.rotation);
 
         Invoke("Rotate", intervals[index%4]);
         index++;
@@ -61,8 +65,9 @@ public class Drone : MonoBehaviour
     private void OnDisable()
     {
         //StartCoroutine("Reborn");
-        CancelInvoke("Rotate");
-        Invoke("Reborn", rebornTime);
+        CancelInvoke();
+        //Invoke("ReInstantiate", rebornTime);
+        GameObject.Find("SpawnManager").GetComponent<SpawnManager>().SpawnDrone();
     }
 
     //IEnumerator Reborn()
@@ -76,39 +81,52 @@ public class Drone : MonoBehaviour
     //    Rotate();
     //}
 
+    void ReInstantiate()
+    {
+        Instantiate(prefab);
+    }
+
     void Reborn()
     {
-        Debug.Log("reborned!");
+        //Debug.Log("reborned!");
 
         gameObject.SetActive(true);
         transform.position = initialPos;
         //Debug.Log(transform.position);
-        Debug.Log("before insert rotate:" + rb.rotation);
+        //Debug.Log("before insert rotate:" + rb.rotation);
 
         rb.rotation = initialRot;
         //Debug.Log(transform.rotation);
-        Debug.Log("after insert:" + rb.rotation);
+        //Debug.Log("after insert:" + rb.rotation);
 
         hp = maxHp;
         index = 0;
         Rotate();
         //Debug.Log(transform.rotation);
-        Debug.Log("after rotate:" + rb.rotation);
+        //Debug.Log("after rotate:" + rb.rotation);
 
     }
 
     public void ChangeHealth(int amount)
     {
-        hp -= amount;
+        if (DoctrineManager.instance.AskLearned("ElecctroMagneticPulse"))
+        {
+            hp = 0;
+        }
+        else
+        {
+            hp -= amount;   
+        }
         if (hp <= 0)
         {
             Engine.instance.UpdateXp(xpPerDrone);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
     void SmokeScreen()
     {
-        smoke.Play();
+        //smoke.Play();
     }
 }

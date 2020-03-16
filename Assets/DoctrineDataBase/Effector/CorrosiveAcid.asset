@@ -18,5 +18,5 @@ MonoBehaviour:
   doctrineCost: 200
   requirements:
   - {fileID: 11400000, guid: 357e5c34908bd1241a5257840eceda41, type: 2}
-  information: "\u5EFA\u7269\u3078\u306E\u4E0E\u30C0\u30E1\u30FC\u30B8\u30A2\u30C3\u30D7"
+  information: "\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u3078\u306E\u4E0E\u30C0\u30E1\u30FC\u30B8\u30A2\u30C3\u30D7"
   effectApplier: {fileID: 0}

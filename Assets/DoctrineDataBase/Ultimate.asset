@@ -15,5 +15,7 @@ MonoBehaviour:
   doctrineType: 5
   doctrineID: 101
   doctrineName: CHARRRRRRGE!
-  doctrineCost: 1600
-  information: "\u7832\u6483\u306A\u3093\u3066\u3084\u3081\u3066\u4FFA\u3082\u7A81\u6483\u3060\uFF01\uFF0A\u4F7F\u7528\u306F\u304A\u52E7\u3081\u3067\u304D\u307E\u305B\u3093\u3002"
+  doctrineCost: 9999999
+  requirements: []
+  information: "\u7832\u6483\u306A\u3093\u3066\u3084\u3081\u3066\u4FFA\u3082\u7A81\u6483\u3060\u3002\uFF0A\u672A\u5B9F\u88C5"
+  effectApplier: {fileID: 0}
