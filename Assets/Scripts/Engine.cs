@@ -33,6 +33,7 @@ public class Engine : MonoBehaviour
 
     private void Awake()
     {
+        Debug.unityLogger.logEnabled = false;
         if (instance == null)
         {
             instance = this;
@@ -40,6 +41,7 @@ public class Engine : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
     // Start is called before the first frame update
     void Start()

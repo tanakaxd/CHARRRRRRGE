@@ -41,11 +41,12 @@ public class Tower : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            transform.Find("Compound").gameObject.SetActive(false);
-            transform.Find("Turret Tower").gameObject.SetActive(false);
-            transform.Find("Slugs").gameObject.SetActive(true);
-            CancelInvoke("Shoot");
+            //transform.Find("Compound").gameObject.SetActive(false);
+            //transform.Find("Turret Tower").gameObject.SetActive(false);
+            //transform.Find("Slugs").gameObject.SetActive(true);
             Engine.instance.UpdateXp(xpPerTower);
+            CancelInvoke("Shoot");
+            Destroy(gameObject);
         }
         Debug.Log("current health: " + health);
 

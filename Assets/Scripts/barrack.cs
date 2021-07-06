@@ -6,7 +6,7 @@ public class barrack : MonoBehaviour
 {
     public GameObject infantryPrefab;
 
-    private float spawnInterval = 1f;
+    private float spawnInterval = 1.5f;
     public float SpawnInterval { get {return spawnInterval; } set {spawnInterval = value; } }
     //public float SpawnInterval { get; set; }
 

@@ -72,14 +72,14 @@ public class projectile : MonoBehaviour
             effect.transform.position = transform.position;
             ParticleSystem explosionEffect = effect.GetComponent<ParticleSystem>();
             explosionEffect.Play();
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position, 10.0f);
+            //AudioSource.PlayClipAtPoint(explosionSound, transform.position, 10.0f);
             //Debug.Log("detonated");
         }
 
         //explosionParticle.transform.parent = null;
         //explosionParticle.Play();
         colliders[1].enabled = true;
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 }
