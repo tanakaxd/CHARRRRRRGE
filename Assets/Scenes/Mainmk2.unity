@@ -8899,6 +8899,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3588806081201364441, guid: 8ba93a10bab658344a38d5708fabc43b,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 1408666759398896736, guid: a2ba314d1c9496c40a114d5e726fbb6e,
+        type: 3}
+    - target: {fileID: 3588806081201364441, guid: 8ba93a10bab658344a38d5708fabc43b,
+        type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7aececce7aa48e0bc07b33d575a5f1, type: 3}
+    - target: {fileID: 3588806081201364441, guid: 8ba93a10bab658344a38d5708fabc43b,
+        type: 3}
+      propertyPath: shootPower
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 7905898077753162256, guid: 8ba93a10bab658344a38d5708fabc43b,
         type: 3}
       propertyPath: m_Name
